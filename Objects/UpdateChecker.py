@@ -43,6 +43,7 @@ class UpdateChecker(commands.Cog):
             mods += preset.modList
         mods = list(dict.fromkeys(mods))
         return mods
+
     async def checkforModpackUpdates(self):
         """Updates the list of mods to check if necessary 
         """
@@ -103,9 +104,10 @@ class UpdateChecker(commands.Cog):
                         await self.printDEBUGEMBED(self.createModEmbed(mod))
 
     def createModEmbed(self,mod):
-         embedVar = discord.Embed(title=f'{mod["name"]} has been updated',description = "",color = 0x00ff00)
+         embedVar = discord.Embed(title=f'{mod.name} has been updated',description = "",color = 0x00ff00)
          embedVar.add_field(name="Filesize",value=mod.fileSizeToMB(),inline= False)
-         embedVar.add_field(name="Update Time",value=mod.timeStampToDate,inline= False)
+         embedVar.add_field(name="Update Time",value=mod.timeStampToDate(),inline= False)
+         embedVar.add_field(name="Mod ID",value=mod.id,inline= False)
          return embedVar
 
 
