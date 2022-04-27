@@ -1,6 +1,6 @@
-from DataBaseHandler import DataBaseHandler
-from Preset import Preset
-from ApiHandler import ApiHandler
+from Objects.DataBaseHandler import DataBaseHandler
+from Objects.Preset import Preset
+from Objects.ApiHandler import ApiHandler
 import os
 from os import listdir
 from os.path import isfile, join

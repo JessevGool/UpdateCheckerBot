@@ -1,6 +1,6 @@
 import requests
 import json
-from Mod import workshopMod
+from Objects.Mod import workshopMod
 class ApiHandler:
     def __init__(self):
         print("ApiHandler created")

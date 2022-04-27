@@ -1,5 +1,4 @@
 from bs4 import BeautifulSoup
-from cv2 import split
 import os
 defaultPath = "config/preset/"
 class Preset:

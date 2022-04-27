@@ -1,5 +1,5 @@
 from asyncio.windows_events import NULL
-from UpdateChecker import UpdateChecker
+from Objects.UpdateChecker import UpdateChecker
 import time
 from discord.ext import commands, tasks
 
