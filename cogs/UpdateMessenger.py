@@ -1,12 +1,12 @@
-from asyncio.windows_events import NULL
+
 from Objects.UpdateChecker import UpdateChecker
 import time
 from discord.ext import commands, tasks
 
 
-updateClient = NULL
+updateClient = ""
 class UpdateMessenger(commands.Cog):
-    @tasks.loop(minutes=1)
+    @tasks.loop(minutes=10)
     async def check_for_update(self):
         print("Checking for updates...")
         await self.checker.checkforModpackUpdates()
