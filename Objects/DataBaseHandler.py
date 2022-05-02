@@ -8,20 +8,24 @@ class DataBaseHandler:
         cred = credentials.Certificate("config/updateCheckerToken.json")
         with open("config/secrets.json") as secrets:
             secrets = json.load(secrets)
-        firebase_admin.initialize_app(cred, 
-        {
-        'databaseURL': secrets["databaseURL"]
-        })
+        try:
+            firebase_admin.get_app()
+        except:
+            firebase_admin.initialize_app(cred, 
+            {
+            'databaseURL': secrets["databaseURL"]
+            })
         self.collectionref = db.reference("/ModCollection")
         print("DataBaseHandler created")
 
 
     def getmodCollectionFromDB(self):
-        modDict= self.collectionref.get()
+        modDict = self.collectionref.get()
         mods = []
         for _mod in modDict.items():
             mod = workshopMod(_mod[0],_mod[1]["name"],_mod[1]["fileSize"],_mod[1]["postDate"],_mod[1]["updateDate"])
             mods.append(mod)
+        
         return(mods)
 
     def setModCollectionForDB(self,mods):

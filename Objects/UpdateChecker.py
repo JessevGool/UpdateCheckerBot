@@ -72,6 +72,9 @@ class UpdateChecker(commands.Cog):
     async def compareDBModsToPresetMods(self):
         dataBaseMods = self.databaseHandler.getmodCollectionFromDB()
         steamAPIMods = self.apiHandler.requestInfo(self.currentModPack)
+        print("API Mods: "+ str(len(steamAPIMods)))
+        print("DB Mods: "+ str(len(dataBaseMods)))
+
         dataBaseModIds = []
         for DBmod in dataBaseMods:
             dataBaseModIds.append(DBmod.id)
